@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Enviar dados para o servidor</h1>
+        <form action="destino.php" method="post">
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" autocomplete="off">
+            </div>
+            <div>
+                <label for="idade">Idade: </label>
+                <input type="number" name="idade" id="idade" placeholder="Digite sua idade" autocomplete="off">
+            </div>
+            <div>
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" autocomplete="off">
+            </div>
+            <div>
+                <label for="time">Para qual time você torce: </label>
+                <input type="text" name="time" id="time" placeholder="Digite seu time" autocomplete="off">
+            </div>
+            <div>
+                <label for="cidade">Em qual cidade você mora: </label>
+                <input type="text" name="cidade" id="cidade" placeholder="Digite sua cidade" autocomplete="off">
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+</body>
+</html>
