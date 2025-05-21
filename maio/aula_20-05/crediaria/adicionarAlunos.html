@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/style-form.css">
+</head>
+<body>
+    
+    <main>
+
+        <h2>Formulário</h2>
+
+        <form action="insertAlunos.php" method="post">
+
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
+            <div>
+                <label for="sexo">Sexo: </label>
+                <label><input type="radio" name="sexo" id="sexo" value="M" required>Masculino</label>
+                <label><input type="radio" name="sexo" id="sexo" value="F" required>Feminino</label>
+            </div>
+            <div>
+                <label for="matricula">Matrícula: </label>
+                <input type="number" name="matricula" id="matricula" required>
+            </div>
+            <div>
+                <label for="celular">Celular: </label>
+                <input type="tel" name="celular" id="celular" placeholder="(XX) XXXXX-XXXX" required>
+            </div>
+            <div>
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" placeholder="exemplo@dominio.com" required>
+            </div>
+            <div>
+                <label for="turma">Turma: </label>
+                <select name="turma" id="turma">
+                    <option value="INF-1A">INF-1A</option>
+                    <option value="INF-2B">INF-2B</option>
+                    <option value="INF-Noturno">INF-Noturno</option>
+                </select>
+            </div>
+
+            <div class="bt-enviar">
+                <input type="submit" value="Enviar">
+            </div>
+
+        </form>
+
+    </main>
+
+</body>
+</html>
