@@ -24,45 +24,41 @@
             <?php
                 require_once 'util.php';
 
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    // receber os dados enviados pelo formulário
-                    $nome = $_POST['nome'];
-                    $sexo = $_POST['sexo'];
-                    $matricula = $_POST['matricula'];
-                    $celular = $_POST['celular'];
-                    $email = $_POST['email'];
-                    $turma = $_POST['turma'];
+                // receber os dados enviados pelo formulário
+                $nome = $_POST['nome'];
+                $sexo = $_POST['sexo'];
+                $matricula = $_POST['matricula'];
+                $celular = $_POST['celular'];
+                $email = $_POST['email'];
+                $turma = $_POST['turma'];
 
-                    // cria a conexão com o banco de dados
-                    $conn = Conectar();
+                $conn = Conectar();
 
-                    // prepara o comando para inserir os dados na tabela 'estudantes'
-                    $varSQL = "INSERT INTO estudantes (nome, sexo, matricula, celular, email, turma) 
-                               VALUES (:nome, :sexo, :matricula, :celular, :email, :turma)";
-                    $insert = $conn->prepare($varSQL);
+                // comando para inserir os dados na tabela 'estudantes'
+                $varSQL = "INSERT INTO estudantes (nome, sexo, matricula, celular, email, turma) 
+                            VALUES (:nome, :sexo, :matricula, :celular, :email, :turma)";
+                $insert = $conn->prepare($varSQL);
 
-                    // vincula os parâmetros recebidos
-                    $insert->bindParam(":nome", $nome);
-                    $insert->bindParam(":sexo", $sexo);
-                    $insert->bindParam(":matricula", $matricula);
-                    $insert->bindParam(":celular", $celular);
-                    $insert->bindParam(":email", $email);
-                    $insert->bindParam(":turma", $turma);
+                $insert->bindParam(":nome", $nome);
+                $insert->bindParam(":sexo", $sexo);
+                $insert->bindParam(":matricula", $matricula);
+                $insert->bindParam(":celular", $celular);
+                $insert->bindParam(":email", $email);
+                $insert->bindParam(":turma", $turma);
 
-                    // inserindo os dados no banco
-                    try {
-                        $insert->execute();
-                        echo "<p>Aluno inserido com sucesso!</p>";
-                    } catch (PDOException $e) {
-                        echo "<p>Erro ao inserir aluno: " . $e->getMessage() . "</p>";
-                    }
-
-                    // redireciona para a mesma página usando o método GET
-                    header("Location: " . $_SERVER['PHP_SELF']);
-                    exit;
+                // inserindo os dados no banco
+                try {
+                    $insert->execute();
+                    echo "<p>Aluno inserido com sucesso!</p>";
+                } catch (PDOException $e) {
+                    echo "<p>Erro ao inserir aluno: " . $e->getMessage() . "</p>";
                 }
 
-                // exibe os dados da tabela
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
+                
+                // ----- EXIBIR OS DADOS -----
+
                 $conn = Conectar();
                 $varSQL = "SELECT * FROM estudantes ORDER BY id";
                 $select = $conn->prepare($varSQL);
@@ -84,7 +80,7 @@
 
                         echo "<td>";
                         echo "<a href='editar.php?id=" . $linha['id'] . "'>Alterar</a> | ";
-                        echo "<a href='excluir.php?id=" . $linha['id'] . "' onclick=\"return confirm('Tem certeza que deseja excluir?');\">Excluir</a>";
+                        echo "<a href='excluir.php?id=" . $linha['id'] . "'>Excluir</a>";
                         echo "</td>";
 
                         echo "</tr>";
