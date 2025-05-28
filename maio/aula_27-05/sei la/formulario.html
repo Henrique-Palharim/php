@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/style-form.css">
+</head>
+<body>
+
+    <main>
+
+        <h2>Formulário</h2>
+
+        <form action="php/adicionarAlunos.php" method="post">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome" required>
+
+            <label for="celular">Celular: </label>
+            <input type="tel" name="celular" id="celular" placeholder="(XX) XXXXX-XXXX" required>
+
+            <label for="email">E-mail: </label>
+            <input type="email" name="email" id="email" placeholder="exemplo@dominio.com" required>
+
+            <label for="legal">Legal: </label>
+            <div class="input-radio">  
+                <label><input type="radio" name="legal" id="legalS" value="true" required>Sim</label>
+                <label><input type="radio" name="legal" id="legalN" value="false" required>Não</label>
+            </div>
+
+            <label for="engracado">Engraçado(a): </label>
+            <div class="input-radio">  
+                <label><input type="radio" name="engracado" id="engracadoS" value="true" required>Sim</label>
+                <label><input type="radio" name="engracado" id="engracadoN" value="false" required>Não</label>
+            </div>
+
+            <label for="sexo">Sexo: </label>
+            <div class="input-radio">
+                <label><input type="radio" name="sexo" id="sexoM" value="M" required>Masculino</label>
+                <label><input type="radio" name="sexo" id="sexoF" value="F" required>Feminino</label>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+    </main>
+    
+</body>
+</html>
