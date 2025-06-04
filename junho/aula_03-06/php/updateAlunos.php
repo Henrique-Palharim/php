@@ -35,6 +35,8 @@
             echo "Erro ao atualizar aluno: " . $e->getMessage();
             exit;
         }
-    } else {
+    }
+    else {
         echo "Requisição inválida.";
-}
+    }
+?>

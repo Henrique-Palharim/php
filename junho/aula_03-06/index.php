@@ -27,7 +27,6 @@
             <?php
                 require_once 'php/util.php';
                 
-                // exibe os dados da tabela
                 $conn = Conectar();
                 $varSQL = "SELECT * FROM alunos_atv ORDER BY id";
                 $select = $conn->prepare($varSQL);

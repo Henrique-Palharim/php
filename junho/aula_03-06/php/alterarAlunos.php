@@ -28,6 +28,7 @@
 <body>
 
 <main>
+    
     <h2>Alterar Aluno</h2>
 
     <!-- Agora envia para updateAlunos.php -->
