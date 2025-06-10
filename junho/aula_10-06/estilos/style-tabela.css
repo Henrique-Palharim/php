@@ -117,3 +117,10 @@ button[type="button"]:hover {
     padding: 5px 8px;
     border-radius: 5px;
 }
+
+.propr-alterar:hover {
+    background-color: rgb(0, 153, 255);
+}
+.propr-excluir:hover {
+    background-color: rgb(255, 51, 0);
+}
