@@ -49,7 +49,7 @@
 
                         echo "<td>";
                         echo "<a class='propr-alterar' href='php/alterarAlunos.php?id=" . $linha['id'] . "'>Alterar</a> | ";
-                        echo "<a class='propr-excluir' href='php/excluirAlunos.php?id=" . $linha['id'] . "'>Excluir</a>";
+                        echo "<a class='propr-excluir' href='#' onclick=\"confirmarExclusao(" . $linha['id'] . ")\">Excluir</a>";
                         echo "</td>";
 
                         echo "</tr>";
@@ -68,7 +68,15 @@
             </a>
         </div>
 
-    </main>  
+    </main>
+
+    <script>
+        function confirmarExclusao(id) {
+            if (confirm("Deseja realmente excluir o aluno(a)?")) {
+                window.location.href = "php/excluirAlunos.php?id=" + id;
+            }
+        }
+    </script>
 
 </body>
 </html>
