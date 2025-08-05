@@ -1,0 +1,32 @@
+body {
+    background-color: #212121;
+    color: white;
+    font-family: monospace;
+    font-size: 1.2em;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+a, a:hover {
+    color: #FF6961;
+}
+
+table {
+    border-collapse: collapse !important;
+}
+
+th, td {
+    padding: 5px 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+input {
+    margin: 8px 0px;
+}
