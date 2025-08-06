@@ -2,12 +2,13 @@
 
     $host = 'localhost';
     $dbname = 'feira';
-    $user = 'root';
-    $senha = '';
+    $user = 'postgres';
+    $senha = 'postgres';
 
     try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $senha);
+        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $senha);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->exec("SET NAMES 'UTF8'");
     } catch (PDOException $e) {
         die("Erro de conexão: " . $e->getMessage());
     }

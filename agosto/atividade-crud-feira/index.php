@@ -14,42 +14,43 @@
 </head>
 <body>
 
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Data Colheita</th>
-                <th>Foto</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($produtos as $p): ?>
+    <div class="container">
+        <table cellpadding="8" cellspacing="0">
+            <thead>
                 <tr>
-                    <td><?= $p['id'] ?></td>
-                    <td><?= htmlspecialchars($p['nome']) ?></td>
-                    <td>R$ <?= number_format($p['preco'], 2, ',', '.') ?></td>
-                    <td><?= date('d/m/Y', strtotime($p['data_colheita'])) ?></td>
-                    <td>
-                        <?php if ($p['foto']): ?>
-                            <img src="fotos/<?= $p['foto'] ?>" width="80">
-                        <?php else: ?>
-                            Sem foto
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <a href="paginas/editar.php?id=<?= $p['id'] ?>">✏️ Editar</a> |
-                        <a href="paginas/excluir.php?id=<?= $p['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">🗑️ Excluir</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Data Colheita</th>
+                    <th>Foto</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($produtos as $p): ?>
+                    <tr>
+                        <td><?= $p['id'] ?></td>
+                        <td><?= htmlspecialchars($p['nome']) ?></td>
+                        <td>R$ <?= number_format($p['preco'], 2, ',', '.') ?></td>
+                        <td><?= date('d/m/Y', strtotime($p['data_colheita'])) ?></td>
+                        <td>
+                            <?php if ($p['foto']): ?>
+                                <img src="fotos/<?= $p['foto'] ?>" width="80">
+                            <?php else: ?>
+                                Sem foto
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <a class="editar" href="paginas/editar.php?id=<?= $p['id'] ?>">✏️ Editar</a> |
+                            <a href="paginas/excluir.php?id=<?= $p['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">🗑️ Excluir</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 
-    <hr>
-    <a href="paginas/adicionar.php">Adicionar Produto</a>
+    <a class="adicionar" href="paginas/adicionar.php">Adicionar Produto</a>
 
 </body>
 </html>
